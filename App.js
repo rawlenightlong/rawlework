@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableOpacity, ActivityIndicator} from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableOpacity, ActivityIndicator, Keyboard} from 'react-native';
 import IngredientsInput from './components/IngredientsInput';
 import { useState } from 'react';
 import RecipeCard from './components/RecipeCard';
@@ -18,6 +18,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(1)
 
   const getRecipe = async function getRecipe(e){
+    Keyboard.dismiss()
     e.preventDefault()
     setIngredientList(ingredients)
     setIsLoading(2)
@@ -50,7 +51,8 @@ export default function App() {
         <IngredientsInput setIngredients={setIngredients} ingredients={ingredients} getRecipe={getRecipe}/>
 
         {isLoading===2 && recipe ? <Text style={{color: "white"}}>building your recipe... <ActivityIndicator/></Text> : null}
-        {isLoading===3 && recipe ? <RecipeCard recipe={recipe}/> : null}  
+        {isLoading===3 && recipe ? <RecipeCard recipe={recipe} setIsLoading={setIsLoading} isLoading={isLoading}/> : null} 
+       
 
       </View>
     </SafeAreaView>

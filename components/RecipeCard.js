@@ -4,9 +4,12 @@ import { View, Text, ScrollView, Button, SafeAreaView} from "react-native";
 const RecipeCard = ({recipe}) => {
 
     const {title, servings, ingredients, instructions} = recipe;
-
+    
 return (
     <ScrollView style={{padding: 10, backgroundColor: "#1976d2", width: "85%", borderRadius: 15, height: "70%" }}>
+
+
+
         <View style={{padding: 15, alignItems: "center"}}>
             <Text style={{textAlign: 'center', marginBottom: 15, fontStyle: "italic", fontWeight:"bold", color: "white"}}>
                 {title}

@@ -26,7 +26,11 @@ const IngredientsInput = ({setIngredients, ingredients, getRecipe}) => {
     value={ingredients}
     placeholder='Add your ingredients here!'
     placeholderTextColor="black"
-    ref={input => {this.textInput = input}}
+    keyboardType="default"
+    onSubmitEditing={getRecipe}
+    enterKeyHint={"search"}
+    inputMode={'search'}
+    keyboardAppearance={"dark"}
     />
 
     <View style={{backgroundColor: "#1976d2", borderRadius: 10, padding: 2, marginBottom: 5}}>
