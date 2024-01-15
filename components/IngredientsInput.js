@@ -26,9 +26,18 @@ const IngredientsInput = ({setIngredients, ingredients, getRecipe}) => {
     value={ingredients}
     placeholder='Add your ingredients here!'
     placeholderTextColor="black"
+    ref={input => {this.textInput = input}}
     />
 
-    <View style={{backgroundColor: "#1976d2", borderRadius: 10, padding: 2, marginBottom: 5}}><Button title="Get Recipe!" onPress={getRecipe} color="white" backgroundColor="#1976d2" borderColor="red">!</Button></View>
+    <View style={{backgroundColor: "#1976d2", borderRadius: 10, padding: 2, marginBottom: 5}}>
+        <Button 
+            title="Get Recipe!" 
+            onPress={getRecipe}
+            color="white" 
+            backgroundColor="#1976d2" 
+            >
+        </Button>
+    </View>
 
 
   </>  )

@@ -31,6 +31,7 @@ export default function App() {
     if (jsonrecipe){
       setIsLoading(3)
       setRecipe({...jsonrecipe})
+      setIngredients('')
     }
   }
 
