@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView, TextInput, TouchableO
 import IngredientsInput from './components/IngredientsInput';
 import { useState } from 'react';
 import RecipeCard from './components/RecipeCard';
+import Nav from './components/Nav';
 
 export default function App() {
 
@@ -36,17 +37,18 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.page}>
+      <Nav/>
       <View style={styles.container}>
-        <View style={{padding: 25}}>
+        <View style={{marginTop: 10, padding: 10, backgroundColor: "#1976d2", width: "85%", borderRadius: 20 }}>
           <Text style={
-            { textAlign: 'center', }}>
+            { textAlign: 'center', color: "white"}}>
           Welcome to Sous Chef AI, a simple, ChatGPT-powered recipe generator for all your culinary needs! Enter a comma-separated list of what you've got lying around at home, and get inspired!
           </Text>
         </View>
         
         <IngredientsInput setIngredients={setIngredients} ingredients={ingredients} getRecipe={getRecipe}/>
 
-        {isLoading===2 && recipe ? <Text>loading... <ActivityIndicator/></Text> : null}
+        {isLoading===2 && recipe ? <Text style={{color: "white"}}>building your recipe... <ActivityIndicator/></Text> : null}
         {isLoading===3 && recipe ? <RecipeCard recipe={recipe}/> : null}  
 
       </View>
@@ -57,12 +59,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   page: {
     flex: 1,
+    backgroundColor: 'black',
   }
 });
